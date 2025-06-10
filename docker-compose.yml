@@ -1,0 +1,52 @@
+version: '3.8'
+
+# Liste de nos "cartons" (services)
+services:
+
+  # 📦 Carton 1 : La base de données
+  database:
+    image: postgres:15-alpine    # On prend une image toute faite
+    container_name: ma-db        # On donne un nom à notre carton
+    environment:                 # Variables d'environnement (comme des réglages)
+      POSTGRES_DB: mon_app
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: motdepasse123
+    volumes:                     # Pour sauvegarder les données
+      - donnees_db:/var/lib/postgresql/data
+    networks:                    # Le réseau pour communiquer
+      - mon-reseau
+
+  # 📦 Carton 2 : Le serveur backend
+  backend:
+    image: yanis78/mon-backend:latest
+    container_name: mon-backend
+    ports:
+      - "5000:5000"             # Port externe:port interne
+    environment:
+      DB_HOST: database         # Le backend parle à "database"
+      DB_USER: admin
+      DB_PASSWORD: motdepasse123
+    depends_on:                 # Attend que la DB soit prête
+      - database
+    networks:
+      - mon-reseau
+
+  # 📦 Carton 3 : Le site web frontend  
+  frontend:
+    image: yanis78/mon-frontend:latest
+    container_name: mon-frontend
+    ports:
+      - "3000:3000"             # Votre site sera sur http://localhost:3000
+    depends_on:                 # Attend que le backend soit prêt
+      - backend
+    networks:
+      - mon-reseau
+
+# 💾 Où on stocke les données importantes
+volumes:
+  donnees_db:                   # Espace de stockage pour la base de données
+
+# 🌐 Le réseau privé pour que nos cartons se parlent
+networks:
+  mon-reseau:
+    driver: bridge
