@@ -4,15 +4,12 @@ function App() {
   const [message, setMessage] = useState('Chargement...');
   const [dbTest, setDbTest] = useState('Test en cours...');
 
-  // Tester la connexion au backend
   useEffect(() => {
-    // Test simple du backend
     fetch('http://localhost:5000/api/test')
       .then(response => response.json())
       .then(data => setMessage(data.message))
       .catch(error => setMessage('Erreur : ' + error.message));
 
-    // Test de la base de données
     fetch('http://localhost:5000/api/db-test')
       .then(response => response.json())
       .then(data => setDbTest(data.message))
