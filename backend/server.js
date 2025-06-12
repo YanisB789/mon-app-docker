@@ -1,13 +1,10 @@
-// Importation des modules (comme des outils)
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 
-// Création de notre application serveur
 const app = express();
 const PORT = 5000;
 
-// Configuration pour parler à la base de données
 const pool = new Pool({
   host: process.env.DB_HOST || 'database',
   port: 5432,
@@ -16,11 +13,9 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD || 'motdepasse123',
 });
 
-// Middleware (des règles pour notre serveur)
-app.use(cors());                    // Permet aux autres sites de nous parler
-app.use(express.json());            // Comprend les données JSON
+app.use(cors());                    
+app.use(express.json());           
 
-// Route simple pour tester si ça marche
 app.get('/api/test', (req, res) => {
   res.json({ 
     message: 'Mon backend fonctionne !', 
@@ -28,7 +23,6 @@ app.get('/api/test', (req, res) => {
   });
 });
 
-// Route pour tester la base de données
 app.get('/api/db-test', async (req, res) => {
   try {
     const result = await pool.query('SELECT NOW()');
