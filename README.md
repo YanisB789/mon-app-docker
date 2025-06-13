@@ -293,7 +293,7 @@ mon-app-docker/
 
 ## 🔗 Liens Utiles
 
-- **Repository Git** : https://github.com/votre-username/mon-app-docker
+- **Repository Git** : https://github.com/YanisB789/mon-app-docker
 - **Images Docker Hub** :
   - Backend : https://hub.docker.com/r/yanis78/mon-backend
   - Frontend : https://hub.docker.com/r/yanis78/mon-frontend
