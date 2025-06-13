@@ -65,36 +65,28 @@ Cette application full-stack démontre la conteneurisation d'une architecture co
 
 #### 1. Installer Docker (si nécessaire)
 ```bash
-Mettre à jour le système,
-,
+Mettre à jour le système:
 sudo apt update && sudo apt upgrade -y
 
-Installer les dépendances,
-,
+Installer les dépendances :
 sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release -y
 
-Ajouter la clé GPG officielle de Docker,
-,
+Ajouter la clé GPG officielle de Docker :
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-Ajouter le repository Docker,
-,
+Ajouter le repository Docker :
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-Mettre à jour la liste des paquets,
-,
+Mettre à jour la liste des paquets :
 sudo apt update
 
-Installer Docker Engine,
-,
+Installer Docker Engine :
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-Ajouter votre utilisateur au groupe docker (pour éviter sudo à chaque fois),
-,
+Ajouter votre utilisateur au groupe docker (pour éviter sudo à chaque fois) :
 sudo usermod -aG docker $USER
 
-Redémarrer le service Docker,
-,
+Redémarrer le service Docker :
 sudo systemctl start docker
 sudo systemctl enable docker
 
