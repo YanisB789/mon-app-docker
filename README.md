@@ -313,27 +313,7 @@ mon-app-docker/
 
 ## 👥 Contributeurs
 
-- **Yanis** - Développement et conteneurisation
+- **Yanis**
+- **Alexandre**
+- **Marco**
 
-## 📄 Licence
-
-Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
-
-## 🎯 Fonctionnalités Techniques Implémentées
-
-### ✅ Exigences Respectées
-- [x] **Conteneurisation complète** - 3 services distincts
-- [x] **Docker Compose** - Orchestration avec volumes et réseaux
-- [x] **Persistance des données** - Volume PostgreSQL
-- [x] **Réseau sécurisé** - Communication isolée backend-database
-- [x] **Images Docker Hub** - Déploiement public
-- [x] **Healthchecks** - Surveillance de l'état des services
-- [x] **Multi-stage builds** - Optimisation des images
-- [x] **Variables d'environnement** - Configuration flexible
-- [x] **Documentation complète** - Guide d'utilisation détaillé
-
-### 🚀 Améliorations Implémentées
-- **Sécurité** : Utilisateurs non-root dans les conteneurs
-- **Performance** : Images Alpine Linux légères
-- **Monitoring** : Logs structurés et healthchecks
-- **Maintenabilité** : Code commenté et modulaire
