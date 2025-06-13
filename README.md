@@ -87,8 +87,8 @@ Ajouter votre utilisateur au groupe docker (pour éviter sudo à chaque fois) :
 sudo usermod -aG docker $USER
 
 Redémarrer le service Docker :
-sudo systemctl start docker
 sudo systemctl enable docker
+sudo systemctl start docker
 
 #### 2. Cloner le projet
 ```bash
