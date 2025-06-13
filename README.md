@@ -313,7 +313,7 @@ mon-app-docker/
 
 ## 👥 Contributeurs
 
-- **Yanis**
-- **Alexandre**
-- **Marco**
+- **Yanis Bonnin**
+- **Alexandre Chollet**
+- **Marco Chiarenza**
 
