@@ -98,6 +98,8 @@ cd mon-app-docker
 
 #### 3. Démarrage rapide
 ```bash
+docker compose build
+
 # Démarrer tous les services
 docker compose up -d
 
